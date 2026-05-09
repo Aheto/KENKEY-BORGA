@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#2c3e50">
-    <meta name="description" content="SANDY MARKET - Seamless Ordering with Live GPS Delivery & Professional Invoicing">
+    <meta name="description" content="SANDY MARKET - Seamless Ordering with Live GPS Delivery">
     <title>MarketPlace - Order & Manage Products</title>
     <style>
         :root {
@@ -208,7 +208,6 @@
         }
         .btn-edit { background: var(--primary-color); color: #fff; }
         .btn-delete { background: var(--accent-color); color: #fff; }
-        .btn-invoice { background: var(--success-color); color: #fff; }
         .btn-manager:hover { 
             transform: translateY(-1px); 
             opacity: 0.95;
@@ -370,13 +369,10 @@
             background-color: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .modal-content {
             background-color: var(--modal-bg); 
-            margin: 0; 
+            margin: 8% auto; 
             padding: 28px;
             border: none; 
             width: 90%; 
@@ -386,18 +382,14 @@
             position: relative;
             animation: slideDown 0.4s ease;
             border-top: 4px solid var(--primary-color);
-            max-height: 90vh;
-            overflow-y: auto;
         }
         @keyframes slideDown { 
-            from { opacity: 0; transform: scale(0.98) translateY(-20px); } 
-            to { opacity: 1; transform: scale(1) translateY(0); } 
+            from { top: -60px; opacity: 0; transform: scale(0.98); } 
+            to { top: 0; opacity: 1; transform: scale(1); } 
         }
         .close { 
             color: #888; 
-            position: absolute;
-            top: 15px;
-            right: 20px;
+            float: right; 
             font-size: 32px; 
             font-weight: bold; 
             cursor: pointer; 
@@ -558,157 +550,6 @@
             color: #666; 
         }
 
-        /* Invoice Styles */
-        .invoice-container {
-            background: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            margin: 20px 0;
-        }
-        .invoice-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-        }
-        .invoice-brand h2 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 1.8em;
-        }
-        .invoice-brand p {
-            margin: 5px 0 0;
-            color: #666;
-            font-size: 0.95em;
-        }
-        .invoice-meta {
-            text-align: right;
-        }
-        .invoice-meta .invoice-number {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 8px;
-        }
-        .invoice-meta .invoice-date {
-            color: #666;
-            font-size: 0.95em;
-        }
-        .invoice-items {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .invoice-items th {
-            background: var(--primary-color);
-            color: #fff;
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        .invoice-items td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .invoice-items tr:last-child td {
-            border-bottom: none;
-        }
-        .invoice-items .item-name {
-            font-weight: 500;
-        }
-        .invoice-items .item-qty {
-            text-align: center;
-        }
-        .invoice-items .item-price,
-        .invoice-items .item-total {
-            text-align: right;
-            font-weight: 500;
-        }
-        .invoice-totals {
-            margin-top: 20px;
-            text-align: right;
-        }
-        .invoice-totals .subtotal,
-        .invoice-totals .tax,
-        .invoice-totals .grand-total {
-            display: flex;
-            justify-content: flex-end;
-            gap: 30px;
-            padding: 8px 0;
-        }
-        .invoice-totals .grand-total {
-            border-top: 2px solid var(--primary-color);
-            padding-top: 15px;
-            margin-top: 10px;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        .invoice-footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px dashed #ccc;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .invoice-footer .delivery-info {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-        .invoice-footer .delivery-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        .invoice-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .btn-print {
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Georgia', serif;
-            font-weight: 500;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-print:hover {
-            background: #1a252f;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-pdf {
-            background: var(--success-color);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Georgia', serif;
-            font-weight: 500;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-pdf:hover {
-            background: #219653;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-        }
-
         /* Responsive Design */
         @media (max-width: 600px) {
             .container { 
@@ -720,9 +561,8 @@
             h2 { font-size: 1.45em; }
             .modal-content { 
                 width: 95%; 
-                margin: 0; 
+                margin: 15% auto; 
                 padding: 24px 20px;
-                max-height: 95vh;
             }
             .product-grid { 
                 grid-template-columns: 1fr 1fr; 
@@ -751,110 +591,19 @@
                 padding: 12px 20px;
                 font-size: 1.05em;
             }
-            .invoice-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            .invoice-meta {
-                text-align: left;
-            }
-            .invoice-items {
-                font-size: 0.9em;
-            }
-            .invoice-items th,
-            .invoice-items td {
-                padding: 8px 10px;
-            }
-            .invoice-actions {
-                flex-direction: column;
-            }
-            .btn-print, .btn-pdf {
-                width: 100%;
-                justify-content: center;
-            }
         }
         
         @media (max-width: 400px) {
             .product-grid { grid-template-columns: 1fr; }
             .product-image { height: 180px; }
-            .invoice-items .item-qty,
-            .invoice-items .item-price {
-                display: none;
-            }
-            .invoice-items th:nth-child(2),
-            .invoice-items td:nth-child(2),
-            .invoice-items th:nth-child(3),
-            .invoice-items td:nth-child(3) {
-                display: none;
-            }
         }
         
-        /* Print Styles - Critical for PDF Export */
+        /* Print Styles */
         @media print {
-            body { 
-                background: #fff; 
-                color: #000; 
-                font-size: 11pt;
-            }
-            .container { 
-                box-shadow: none; 
-                margin: 0; 
-                padding: 10px; 
-                max-width: 100%;
-                border-radius: 0;
-            }
-            .role-toggle, 
-            .btn-primary, 
-            .btn-whatsapp, 
-            .manager-actions, 
-            #managerView,
-            .no-print,
-            footer,
-            .invoice-actions {
+            .role-toggle, .btn-primary, .btn-whatsapp, .manager-actions, #managerView {
                 display: none !important;
             }
-            .modal {
-                position: static;
-                background: #fff;
-                display: block !important;
-            }
-            .modal-content {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                max-width: 100%;
-                box-shadow: none;
-                border: none;
-                animation: none;
-                border-top: none;
-            }
-            .close { display: none; }
-            .invoice-container {
-                box-shadow: none;
-                padding: 0;
-                margin: 0;
-            }
-            .invoice-header {
-                border-bottom: 2px solid #000;
-            }
-            .invoice-items {
-                width: 100%;
-            }
-            .invoice-items th {
-                background: #f0f0f0 !important;
-                color: #000 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            a {
-                color: #000;
-                text-decoration: none;
-            }
-            @page {
-                margin: 1.5cm;
-                size: A4;
-            }
+            .container { box-shadow: none; margin: 0; padding: 10px; }
         }
     </style>
 </head>
@@ -940,7 +689,7 @@
         <h3>🗂️ Manage Existing Products</h3>
         <div class="manager-product-list" id="managerProductList"></div>
 
-        <h3>📋 Manage Orders & Invoices</h3>
+        <h3>📋 Manage Orders</h3>
         <div id="ordersContainer">
             <p class="warning-box">No orders yet. Orders will appear here when clients place them.</p>
         </div>
@@ -949,7 +698,7 @@
     <footer>
         <p>&copy; 2026 SANDY MARKET • Built with Vanilla JS • GPS-Enabled Delivery</p>
         <p style="font-size:0.85em;color:#888;margin-top:8px;">
-            🔐 Manager settings permanent • 🖼️ Images embedded • 📱 Works offline • 🧾 Professional Invoicing
+            🔐 Manager settings permanent • 🖼️ Images embedded • 📱 Works offline
         </p>
     </footer>
 </div>
@@ -986,16 +735,6 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Forward Order to Manager via WhatsApp
             </button>
-            <div class="invoice-actions no-print">
-                <button class="btn-print" onclick="printInvoice(lastOrder?.id)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
-                    Print Invoice
-                </button>
-                <button class="btn-pdf" onclick="exportInvoicePDF(lastOrder?.id)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                    Export PDF
-                </button>
-            </div>
         </div>
     </div>
 </div>
@@ -1057,1272 +796,923 @@
     </div>
 </div>
 
-<!-- Invoice Preview Modal -->
-<div id="invoiceModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('invoiceModal')">&times;</span>
-        <h2 style="margin-top:0; color:var(--primary-color); border-bottom:2px solid #eee; padding-bottom:15px;">🧾 Invoice Preview</h2>
-        <div id="invoicePreviewContainer"></div>
-        <div class="invoice-actions no-print" style="margin-top:20px;">
-            <button class="btn-print" onclick="printInvoiceFromPreview()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
-                Print Invoice
-            </button>
-            <button class="btn-pdf" onclick="exportPDFFromPreview()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                Export as PDF
-            </button>
-            <button class="btn-secondary" onclick="closeModal('invoiceModal')" style="margin:0;">Close</button>
-        </div>
-    </div>
-</div>
-
 <script>
-    // ==================== IIFE WRAPPER FOR VANILLA JS ====================
-    (function() {
-        'use strict';
-        
-        // ==================== PERMANENT CONFIGURATION ====================
-        const CONFIG = {
-            MANAGER_PASSWORD: 'elisko',
-            MANAGER_WHATSAPP_NUMBER: '233257320201',
-            APP_VERSION: '2.1.0',
-            LAST_UPDATED: '2026-04-13',
-            TAX_RATE: 0.00, // Ghana VAT can be added here if needed
-            COMPANY_NAME: 'SANDY MARKET',
-            COMPANY_ADDRESS: 'Accra, Ghana',
-            COMPANY_CONTACT: '+233 25 732 0201'
-        };
+    // ==================== PERMANENT CONFIGURATION ====================
+    // ⚠️ MANAGER SETTINGS - PERMANENT & EMBEDDED
+    // These settings persist across devices and work offline
+    const CONFIG = {
+        MANAGER_PASSWORD: 'elisko', // 🔐 Hardcoded for demo - replace with server auth in production
+        MANAGER_WHATSAPP_NUMBER: '233257320201', // 📱 International format, no +
+        APP_VERSION: '2.1.0',
+        LAST_UPDATED: '2026-04-13'
+    };
 
-        // ==================== EMBEDDED DEFAULT IMAGES (BASE64) ====================
-        const DEFAULT_IMAGES = {
-            oranges: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23ffa500;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23ff6b00;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="400" height="400" rx="20"/%3E%3Ccircle cx="200" cy="180" r="80" fill="%23fff" opacity="0.3"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="24" font-weight="bold"%3EFresh Oranges%3C/text%3E%3Ctext x="50%25" y="65%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="16"%3E1kg Pack%3C/text%3E%3C/svg%3E',
-            soap: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23e8f4f8;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23b3d9e8;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="400" height="400" rx="20"/%3E%3Crect x="80" y="120" width="240" height="180" rx="15" fill="%23fff" stroke="%232c3e50" stroke-width="3"/%3E%3Ccircle cx="200" cy="210" r="40" fill="%233498db" opacity="0.2"/%3E%3Ctext x="50%25" y="45%25" dominant-baseline="middle" text-anchor="middle" fill="%232c3e50" font-family="Georgia" font-size="22" font-weight="bold"%3EHandmade Soap%3C/text%3E%3Ctext x="50%25" y="60%25" dominant-baseline="middle" text-anchor="middle" fill="%232c3e50" font-family="Georgia" font-size="15"%3ENatural Ingredients%3C/text%3E%3C/svg%3E',
-            honey: 'image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23f4c430;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23d4a017;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="400" height="400" rx="20"/%3E%3Cellipse cx="200" cy="220" rx="70" ry="90" fill="%23fff" opacity="0.25"/%3E%3Cpath d="M150 180 Q200 140 250 180 L240 280 Q200 310 160 280 Z" fill="%238b6914" opacity="0.3"/%3E%3Ctext x="50%25" y="40%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="22" font-weight="bold"%3ELocal Honey%3C/text%3E%3Ctext x="50%25" y="55%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="15"%3E500ml Pure%3C/text%3E%3C/svg%3E',
-            placeholder: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Crect fill="%23f5f5f5" width="400" height="400"/%3E%3Crect x="80" y="120" width="240" height="180" rx="10" fill="%23e0e0e0"/%3E%3Ccircle cx="200" cy="210" r="45" fill="%23bdbdbd"/%3E%3Ctext x="50%25" y="75%25" dominant-baseline="middle" text-anchor="middle" fill="%23757575" font-family="Georgia" font-size="18"%3ENo Image%3C/text%3E%3C/svg%3E'
-        };
+    // ==================== EMBEDDED DEFAULT IMAGES (BASE64) ====================
+    // 🖼️ Images stored as data URLs - persist across devices, work offline
+    // Only manager with password can replace these
+    const DEFAULT_IMAGES = {
+        oranges: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23ffa500;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23ff6b00;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="400" height="400" rx="20"/%3E%3Ccircle cx="200" cy="180" r="80" fill="%23fff" opacity="0.3"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="24" font-weight="bold"%3EFresh Oranges%3C/text%3E%3Ctext x="50%25" y="65%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="16"%3E1kg Pack%3C/text%3E%3C/svg%3E',
+        soap: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23e8f4f8;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23b3d9e8;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="400" height="400" rx="20"/%3E%3Crect x="80" y="120" width="240" height="180" rx="15" fill="%23fff" stroke="%232c3e50" stroke-width="3"/%3E%3Ccircle cx="200" cy="210" r="40" fill="%233498db" opacity="0.2"/%3E%3Ctext x="50%25" y="45%25" dominant-baseline="middle" text-anchor="middle" fill="%232c3e50" font-family="Georgia" font-size="22" font-weight="bold"%3EHandmade Soap%3C/text%3E%3Ctext x="50%25" y="60%25" dominant-baseline="middle" text-anchor="middle" fill="%232c3e50" font-family="Georgia" font-size="15"%3ENatural Ingredients%3C/text%3E%3C/svg%3E',
+        honey: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23f4c430;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23d4a017;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="400" height="400" rx="20"/%3E%3Cellipse cx="200" cy="220" rx="70" ry="90" fill="%23fff" opacity="0.25"/%3E%3Cpath d="M150 180 Q200 140 250 180 L240 280 Q200 310 160 280 Z" fill="%238b6914" opacity="0.3"/%3E%3Ctext x="50%25" y="40%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="22" font-weight="bold"%3ELocal Honey%3C/text%3E%3Ctext x="50%25" y="55%25" dominant-baseline="middle" text-anchor="middle" fill="%23fff" font-family="Georgia" font-size="15"%3E500ml Pure%3C/text%3E%3C/svg%3E',
+        placeholder: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Crect fill="%23f5f5f5" width="400" height="400"/%3E%3Crect x="80" y="120" width="240" height="180" rx="10" fill="%23e0e0e0"/%3E%3Ccircle cx="200" cy="210" r="45" fill="%23bdbdbd"/%3E%3Ctext x="50%25" y="75%25" dominant-baseline="middle" text-anchor="middle" fill="%23757575" font-family="Georgia" font-size="18"%3ENo Image%3C/text%3E%3C/svg%3E'
+    };
 
-        // ==================== DATA STORES ====================
-        let products = [
-            { id: 1, name: "Fresh Oranges (1kg)", price: 12.50, image: DEFAULT_IMAGES.oranges },
-            { id: 2, name: "Handmade Soap", price: 8.00, image: DEFAULT_IMAGES.soap },
-            { id: 3, name: "Local Honey (500ml)", price: 25.00, image: DEFAULT_IMAGES.honey }
-        ];
-        
-        let cart = [];
-        let userLocation = null;
-        let currentRole = 'client';
-        let nextProductId = 4;
-        let nextOrderId = 1;
-        let managerMode = false;
-        let lastOrder = null;
-        let pendingImageEdit = null;
+    // ==================== DATA STORES ====================
+    let products = [
+        { id: 1, name: "Fresh Oranges (1kg)", price: 12.50, image: DEFAULT_IMAGES.oranges },
+        { id: 2, name: "Handmade Soap", price: 8.00, image: DEFAULT_IMAGES.soap },
+        { id: 3, name: "Local Honey (500ml)", price: 25.00, image: DEFAULT_IMAGES.honey }
+    ];
+    
+    let cart = [];
+    let userLocation = null;
+    let currentRole = 'client';
+    let nextProductId = 4;
+    let nextOrderId = 1;
+    let managerMode = false;
+    let lastOrder = null;
+    let pendingImageEdit = null; // For two-step image change verification
 
-        // ==================== INITIALIZATION ====================
-        document.addEventListener('DOMContentLoaded', () => {
-            // Load from localStorage if available
-            const savedProducts = localStorage.getItem('marketplace_products');
-            if (savedProducts) {
-                const loaded = JSON.parse(savedProducts);
-                products = products.map(p => {
-                    const updated = loaded.find(x => x.id === p.id);
-                    return updated ? {...p, ...updated} : p;
-                });
-                loaded.forEach(p => {
-                    if (!products.find(x => x.id === p.id)) {
-                        products.push(p);
-                    }
-                });
-                nextProductId = Math.max(...products.map(p => p.id), 3) + 1;
-            }
-            
-            const savedOrders = localStorage.getItem('marketplace_orders');
-            if (savedOrders) {
-                const orders = JSON.parse(savedOrders);
-                nextOrderId = Math.max(...orders.map(o => o.id), 0) + 1;
-            }
-            
-            // Set app version in footer
-            const footer = document.querySelector('footer p:last-child');
-            if (footer) {
-                footer.innerHTML += ` • v${CONFIG.APP_VERSION}`;
-            }
-            
-            renderProducts(); 
-            renderCart();
-            
-            // Prevent accidental navigation during critical operations
-            window.addEventListener('beforeunload', (e) => {
-                if (cart.length > 0 && currentRole === 'client') {
-                    e.preventDefault();
-                    e.returnValue = '';
+    // ==================== INITIALIZATION ====================
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load from localStorage if available (for user-added products)
+        const savedProducts = localStorage.getItem('marketplace_products');
+        if (savedProducts) {
+            const loaded = JSON.parse(savedProducts);
+            // Merge: keep embedded defaults for original IDs, add new ones
+            products = products.map(p => {
+                const updated = loaded.find(x => x.id === p.id);
+                return updated ? {...p, ...updated} : p;
+            });
+            // Add any new products not in defaults
+            loaded.forEach(p => {
+                if (!products.find(x => x.id === p.id)) {
+                    products.push(p);
                 }
             });
+            nextProductId = Math.max(...products.map(p => p.id), 3) + 1;
+        }
+        
+        const savedOrders = localStorage.getItem('marketplace_orders');
+        if (savedOrders) {
+            const orders = JSON.parse(savedOrders);
+            nextOrderId = Math.max(...orders.map(o => o.id), 0) + 1;
+        }
+        
+        // Set app version in footer
+        const footer = document.querySelector('footer p:last-child');
+        if (footer) {
+            footer.innerHTML += ` • v${CONFIG.APP_VERSION}`;
+        }
+        
+        renderProducts(); 
+        renderCart();
+        
+        // Prevent accidental navigation during critical operations
+        window.addEventListener('beforeunload', (e) => {
+            if (cart.length > 0 && currentRole === 'client') {
+                e.preventDefault();
+                e.returnValue = '';
+            }
         });
+    });
 
-        // ==================== ROLE SWITCHING ====================
-        function switchRole(role) {
-            currentRole = role;
-            document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
-            const btnIndex = role === 'manager' ? 1 : 0;
-            const buttons = document.querySelectorAll('.role-btn');
-            if (buttons[btnIndex]) buttons[btnIndex].classList.add('active');
-            
-            document.getElementById('clientView').classList.toggle('hidden', role !== 'client');
-            document.getElementById('managerView').classList.toggle('hidden', role !== 'manager');
-            
-            if (role === 'client') { 
-                renderProducts(); 
-                renderCart(); 
-            }
-            if (role === 'manager') { 
-                renderManagerProducts(); 
-                renderOrders(); 
-            }
-        }
-
-        // ==================== MANAGER AUTHENTICATION ====================
-        function requestManagerAccess() {
-            document.getElementById('passwordModal').style.display = 'flex';
-            document.getElementById('managerPassword').value = '';
-            document.getElementById('passwordError').style.display = 'none';
-            setTimeout(() => document.getElementById('managerPassword').focus(), 100);
-        }
-
-        function handlePasswordEnter(event) {
-            if (event.key === 'Enter') verifyManagerPassword();
-        }
-
-        function verifyManagerPassword() {
-            const input = document.getElementById('managerPassword').value;
-            const errorEl = document.getElementById('passwordError');
-            
-            if (input === CONFIG.MANAGER_PASSWORD) {
-                closeModal('passwordModal');
-                document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
-                const buttons = document.querySelectorAll('.role-btn');
-                if (buttons[1]) buttons[1].classList.add('active');
-                switchRole('manager');
-                showNotification('🔓 Manager access granted', 'success');
-            } else {
-                errorEl.style.display = 'block';
-                errorEl.textContent = '❌ Incorrect password. Try again.';
-                document.getElementById('managerPassword').value = '';
-                document.getElementById('managerPassword').focus();
-                const modal = document.querySelector('#passwordModal .modal-content');
-                modal.style.animation = 'none';
-                setTimeout(() => modal.style.animation = 'slideDown 0.4s ease', 10);
-            }
-        }
-
-        function logoutManager() {
-            currentRole = 'client';
-            document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
-            const buttons = document.querySelectorAll('.role-btn');
-            if (buttons[0]) buttons[0].classList.add('active');
-            switchRole('client');
-            managerMode = false;
-            document.getElementById('managerModeToggle').checked = false;
-            renderProducts();
-            showNotification('🔒 Manager session ended', 'success');
-        }
-
-        // ==================== MANAGER MODE TOGGLE ====================
-        function toggleManagerMode() {
-            managerMode = document.getElementById('managerModeToggle').checked;
-            renderProducts();
-            showNotification(
-                managerMode ? '✏️ Edit Mode: ON - Products editable' : '✅ Edit Mode: OFF - Client view', 
-                managerMode ? 'warning' : 'success'
-            );
-        }
-
-        // ==================== CLIENT FUNCTIONS ====================
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
-            
-            if (products.length === 0) {
-                grid.innerHTML = '<p class="warning-box" style="grid-column:1/-1;text-align:center;">No products available. Manager: Add products in dashboard.</p>';
-                return;
-            }
-            
-            products.forEach(product => {
-                const card = document.createElement('div');
-                card.className = 'product-card' + (managerMode ? ' manager-mode' : '');
-                
-                const imageHTML = product.image 
-                    ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` 
-                    : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-style:italic;">📷 No Image</div>`;
-                
-                let actionsHTML = managerMode ? `
-                    <div class="manager-actions">
-                        <button class="btn-manager btn-edit" onclick="openEditProductModal(${product.id})">✏️ Edit</button>
-                        <button class="btn-manager btn-delete" onclick="deleteProduct(${product.id})">🗑️ Delete</button>
-                        <button class="btn-manager btn-invoice" onclick="generateInvoicePreview(${product.id})">🧾 Invoice</button>
-                    </div>` : '';
-                
-                card.innerHTML = `
-                    <div class="product-image" onclick="${managerMode ? '' : `openProductModal(${product.id})`}">
-                        ${imageHTML}
-                    </div>
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-price">GHS ${product.price.toFixed(2)}</div>
-                    ${!managerMode ? `<button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>` : ''}
-                    ${actionsHTML}
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function openProductModal(productId) {
-            if (managerMode) return;
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            document.getElementById('productModalTitle').textContent = product.name;
-            document.getElementById('productModalPrice').textContent = `GHS ${product.price.toFixed(2)}`;
-            document.getElementById('productModalImage').src = product.image || DEFAULT_IMAGES.placeholder;
-            document.getElementById('productModalImage').alt = product.name;
-            document.getElementById('modalAddToCart').onclick = () => { 
-                addToCart(productId); 
-                closeModal('productModal'); 
-            };
-            document.getElementById('productModal').style.display = 'flex';
-        }
-
-        function addToCart(productId) {
-            if (managerMode) return;
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            const existing = cart.find(item => item.id === productId);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            
-            renderCart();
-            showNotification(`✅ ${product.name} added to cart!`, 'success');
-            
-            if (navigator.vibrate) navigator.vibrate(50);
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cartContainer');
-            if (!container) return;
-            
-            if (cart.length === 0) {
-                container.innerHTML = '<p class="warning-box">Your cart is empty. Add products to get started!</p>';
-                return;
-            }
-            
-            let html = '<div class="order-summary">';
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                html += `<div class="order-item">
-                    <span><strong>${item.name}</strong> × ${item.quantity}</span>
-                    <span>GHS ${itemTotal.toFixed(2)}</span>
-                    <button class="btn-secondary" onclick="removeFromCart(${index})" style="padding:4px 10px;font-size:0.9em;margin-left:10px;">✕</button>
-                </div>`;
-            });
-            
-            html += `<div class="order-total">Total: GHS ${total.toFixed(2)}</div></div>`;
-            container.innerHTML = html;
-        }
-
-        function removeFromCart(index) { 
-            const removed = cart.splice(index, 1)[0];
+    // ==================== ROLE SWITCHING ====================
+    function switchRole(role) {
+        currentRole = role;
+        document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+        const btnIndex = role === 'manager' ? 1 : 0;
+        const buttons = document.querySelectorAll('.role-btn');
+        if (buttons[btnIndex]) buttons[btnIndex].classList.add('active');
+        
+        document.getElementById('clientView').classList.toggle('hidden', role !== 'client');
+        document.getElementById('managerView').classList.toggle('hidden', role !== 'manager');
+        
+        if (role === 'client') { 
+            renderProducts(); 
             renderCart(); 
-            showNotification(`🗑️ ${removed.name} removed from cart`, 'warning');
         }
-
-        function getLocation() {
-            if (!navigator.geolocation) { 
-                alert('⚠️ Geolocation not supported by your browser'); 
-                return; 
-            }
-            
-            const btn = event.target;
-            const originalText = btn.innerHTML;
-            btn.disabled = true; 
-            btn.innerHTML = '📍 Locating...';
-            
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    userLocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                        accuracy: position.coords.accuracy
-                    };
-                    document.getElementById('latValue').textContent = userLocation.lat.toFixed(6);
-                    document.getElementById('lngValue').textContent = userLocation.lng.toFixed(6);
-                    document.getElementById('accuracyValue').textContent = Math.round(userLocation.accuracy);
-                    document.getElementById('locationDisplay').classList.remove('hidden');
-                    btn.innerHTML = '✅ Location Captured'; 
-                    btn.style.background = 'var(--success-color)';
-                    showNotification('📍 GPS location captured successfully', 'success');
-                },
-                (error) => { 
-                    let msg = 'Error getting location';
-                    switch(error.code) {
-                        case error.PERMISSION_DENIED: msg = 'Location permission denied'; break;
-                        case error.POSITION_UNAVAILABLE: msg = 'Location information unavailable'; break;
-                        case error.TIMEOUT: msg = 'Location request timed out'; break;
-                    }
-                    alert(`⚠️ ${msg}. Please enable location services.`); 
-                    btn.disabled = false; 
-                    btn.innerHTML = originalText;
-                },
-                { enableHighAccuracy: true, timeout: 15000, maximumAge: 300000 }
-            );
+        if (role === 'manager') { 
+            renderManagerProducts(); 
+            renderOrders(); 
         }
+    }
 
-        function placeOrder() {
-            if (cart.length === 0) { 
-                showNotification('⚠️ Your cart is empty!', 'warning'); 
-                return; 
+    // ==================== MANAGER AUTHENTICATION ====================
+    function requestManagerAccess() {
+        document.getElementById('passwordModal').style.display = 'block';
+        document.getElementById('managerPassword').value = '';
+        document.getElementById('passwordError').style.display = 'none';
+        setTimeout(() => document.getElementById('managerPassword').focus(), 100);
+    }
+
+    function handlePasswordEnter(event) {
+        if (event.key === 'Enter') verifyManagerPassword();
+    }
+
+    function verifyManagerPassword() {
+        const input = document.getElementById('managerPassword').value;
+        const errorEl = document.getElementById('passwordError');
+        
+        if (input === CONFIG.MANAGER_PASSWORD) {
+            closeModal('passwordModal');
+            document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+            const buttons = document.querySelectorAll('.role-btn');
+            if (buttons[1]) buttons[1].classList.add('active');
+            switchRole('manager');
+            showNotification('🔓 Manager access granted', 'success');
+        } else {
+            errorEl.style.display = 'block';
+            errorEl.textContent = '❌ Incorrect password. Try again.';
+            document.getElementById('managerPassword').value = '';
+            document.getElementById('managerPassword').focus();
+            // Shake animation for error feedback
+            const modal = document.querySelector('#passwordModal .modal-content');
+            modal.style.animation = 'none';
+            setTimeout(() => modal.style.animation = 'slideDown 0.4s ease', 10);
+        }
+    }
+
+    function logoutManager() {
+        currentRole = 'client';
+        document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+        const buttons = document.querySelectorAll('.role-btn');
+        if (buttons[0]) buttons[0].classList.add('active');
+        switchRole('client');
+        managerMode = false;
+        document.getElementById('managerModeToggle').checked = false;
+        renderProducts();
+        showNotification('🔒 Manager session ended', 'success');
+    }
+
+    // ==================== MANAGER MODE TOGGLE ====================
+    function toggleManagerMode() {
+        managerMode = document.getElementById('managerModeToggle').checked;
+        renderProducts();
+        showNotification(
+            managerMode ? '✏️ Edit Mode: ON - Products editable' : '✅ Edit Mode: OFF - Client view', 
+            managerMode ? 'warning' : 'success'
+        );
+    }
+
+    // ==================== CLIENT FUNCTIONS ====================
+    function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        
+        if (products.length === 0) {
+            grid.innerHTML = '<p class="warning-box" style="grid-column:1/-1;text-align:center;">No products available. Manager: Add products in dashboard.</p>';
+            return;
+        }
+        
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card' + (managerMode ? ' manager-mode' : '');
+            
+            const imageHTML = product.image 
+                ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` 
+                : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-style:italic;">📷 No Image</div>`;
+            
+            let actionsHTML = managerMode ? `
+                <div class="manager-actions">
+                    <button class="btn-manager btn-edit" onclick="openEditProductModal(${product.id})">✏️ Edit</button>
+                    <button class="btn-manager btn-delete" onclick="deleteProduct(${product.id})">🗑️ Delete</button>
+                </div>` : '';
+            
+            card.innerHTML = `
+                <div class="product-image" onclick="${managerMode ? '' : `openProductModal(${product.id})`}">
+                    ${imageHTML}
+                </div>
+                <div class="product-name">${product.name}</div>
+                <div class="product-price">GHS ${product.price.toFixed(2)}</div>
+                ${!managerMode ? `<button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>` : ''}
+                ${actionsHTML}
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function openProductModal(productId) {
+        if (managerMode) return;
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        
+        document.getElementById('productModalTitle').textContent = product.name;
+        document.getElementById('productModalPrice').textContent = `GHS ${product.price.toFixed(2)}`;
+        document.getElementById('productModalImage').src = product.image || DEFAULT_IMAGES.placeholder;
+        document.getElementById('productModalImage').alt = product.name;
+        document.getElementById('modalAddToCart').onclick = () => { 
+            addToCart(productId); 
+            closeModal('productModal'); 
+        };
+        document.getElementById('productModal').style.display = 'block';
+    }
+
+    function addToCart(productId) {
+        if (managerMode) return;
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        
+        const existing = cart.find(item => item.id === productId);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+        
+        renderCart();
+        showNotification(`✅ ${product.name} added to cart!`, 'success');
+        
+        // Haptic feedback for mobile
+        if (navigator.vibrate) navigator.vibrate(50);
+    }
+
+    function renderCart() {
+        const container = document.getElementById('cartContainer');
+        if (!container) return;
+        
+        if (cart.length === 0) {
+            container.innerHTML = '<p class="warning-box">Your cart is empty. Add products to get started!</p>';
+            return;
+        }
+        
+        let html = '<div class="order-summary">';
+        let total = 0;
+        
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            html += `<div class="order-item">
+                <span><strong>${item.name}</strong> × ${item.quantity}</span>
+                <span>GHS ${itemTotal.toFixed(2)}</span>
+                <button class="btn-secondary" onclick="removeFromCart(${index})" style="padding:4px 10px;font-size:0.9em;margin-left:10px;">✕</button>
+            </div>`;
+        });
+        
+        html += `<div class="order-total">Total: GHS ${total.toFixed(2)}</div></div>`;
+        container.innerHTML = html;
+    }
+
+    function removeFromCart(index) { 
+        const removed = cart.splice(index, 1)[0];
+        renderCart(); 
+        showNotification(`🗑️ ${removed.name} removed from cart`, 'warning');
+    }
+
+    function getLocation() {
+        if (!navigator.geolocation) { 
+            alert('⚠️ Geolocation not supported by your browser'); 
+            return; 
+        }
+        
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        btn.disabled = true; 
+        btn.innerHTML = '📍 Locating...';
+        
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                    accuracy: position.coords.accuracy
+                };
+                document.getElementById('latValue').textContent = userLocation.lat.toFixed(6);
+                document.getElementById('lngValue').textContent = userLocation.lng.toFixed(6);
+                document.getElementById('accuracyValue').textContent = Math.round(userLocation.accuracy);
+                document.getElementById('locationDisplay').classList.remove('hidden');
+                btn.innerHTML = '✅ Location Captured'; 
+                btn.style.background = 'var(--success-color)';
+                showNotification('📍 GPS location captured successfully', 'success');
+            },
+            (error) => { 
+                let msg = 'Error getting location';
+                switch(error.code) {
+                    case error.PERMISSION_DENIED: msg = 'Location permission denied'; break;
+                    case error.POSITION_UNAVAILABLE: msg = 'Location information unavailable'; break;
+                    case error.TIMEOUT: msg = 'Location request timed out'; break;
+                }
+                alert(`⚠️ ${msg}. Please enable location services.`); 
+                btn.disabled = false; 
+                btn.innerHTML = originalText;
+            },
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 300000 }
+        );
+    }
+
+    function placeOrder() {
+        if (cart.length === 0) { 
+            showNotification('⚠️ Your cart is empty!', 'warning'); 
+            return; 
+        }
+        if (!userLocation && !confirm('⚠️ No GPS location detected. Continue order without delivery coordinates?')) {
+            return;
+        }
+        
+        const order = {
+            id: nextOrderId++,
+            items: JSON.parse(JSON.stringify(cart)), // Deep copy
+            total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+            location: userLocation ? {...userLocation} : null,
+            timestamp: new Date().toLocaleString('en-GH', { 
+                year: 'numeric', month: 'short', day: 'numeric',
+                hour: '2-digit', minute: '2-digit'
+            }),
+            status: 'pending',
+            appVersion: CONFIG.APP_VERSION
+        };
+        
+        // Save to localStorage with timestamp
+        const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
+        orders.push(order);
+        localStorage.setItem('marketplace_orders', JSON.stringify(orders));
+        
+        // Also save products state
+        localStorage.setItem('marketplace_products', JSON.stringify(products));
+        
+        lastOrder = order;
+        showOrderConfirmation(order);
+        cart = []; 
+        renderCart();
+        showNotification(`🎉 Order #${order.id} placed successfully!`, 'success');
+    }
+
+    function showOrderConfirmation(order) {
+        const summary = document.getElementById('orderSummary');
+        if (!summary) return;
+        
+        let html = `<p style="margin-bottom:15px;"><strong>Order #${order.id}</strong> • ${order.timestamp}</p>`;
+        order.items.forEach(item => {
+            html += `<div class="order-item">
+                <span>${item.name} × ${item.quantity}</span>
+                <span>GHS ${(item.price * item.quantity).toFixed(2)}</span>
+            </div>`;
+        });
+        html += `<div class="order-total">Total: GHS ${order.total.toFixed(2)}</div>`;
+        
+        if (order.location) {
+            const mapsUrl = `https://maps.google.com/?q=${order.location.lat},${order.location.lng}`;
+            html += `<p style="margin-top:18px;padding-top:15px;border-top:1px solid #eee;">
+                <strong>📍 Delivery Location:</strong><br>
+                <a href="${mapsUrl}" target="_blank" style="color:var(--primary-color);text-decoration:none;font-weight:500;">
+                    ${order.location.lat.toFixed(6)}, ${order.location.lng.toFixed(6)}
+                </a><br>
+                <small style="color:#666;">Accuracy: ±${Math.round(order.location.accuracy)}m • 
+                <a href="${mapsUrl}" target="_blank" style="color:var(--accent-color);">Open in Maps</a></small>
+            </p>`;
+        } else {
+            html += `<p style="margin-top:18px;padding-top:15px;border-top:1px solid #eee;color:var(--warning-color);">
+                <strong>⚠️ No GPS location</strong><br>
+                <small>Manager will confirm delivery address via phone call</small>
+            </p>`;
+        }
+        summary.innerHTML = html;
+        document.getElementById('orderModal').style.display = 'block';
+    }
+
+    // ==================== WHATSAPP INTEGRATION ====================
+    function formatWhatsAppMessage(order) {
+        let msg = `*🛍️ SANDY MARKET - NEW ORDER #${order.id}*\\n`;
+        msg += `*Time:* ${order.timestamp}\\n`;
+        if (order.appVersion) msg += `*App:* v${order.appVersion}\\n`;
+        msg += `\\n*Items:*\\n`;
+        order.items.forEach(item => {
+            msg += `• ${item.name} × ${item.quantity} = *GHS ${(item.price * item.quantity).toFixed(2)}*\\n`;
+        });
+        msg += `\\n*💰 TOTAL: GHS ${order.total.toFixed(2)}*\\n`;
+        
+        if (order.location) {
+            msg += `\\n*📍 Delivery GPS:*\\n`;
+            msg += `https://maps.google.com/?q=${order.location.lat},${order.location.lng}\\n`;
+            msg += `Accuracy: ±${Math.round(order.location.accuracy)}m`;
+        } else {
+            msg += `\\n⚠️ *No GPS - confirm address via call*`;
+        }
+        msg += `\\n\\n_Powered by SANDY MARKET App v${CONFIG.APP_VERSION}_`;
+        return encodeURIComponent(msg);
+    }
+
+    function sendOrderToWhatsApp() {
+        if (cart.length === 0) { 
+            showNotification('⚠️ Cart is empty!', 'warning'); 
+            return; 
+        }
+        const tempOrder = { 
+            id: 'DRAFT-' + Date.now(), 
+            items: JSON.parse(JSON.stringify(cart)), 
+            total: cart.reduce((s,i)=>s+(i.price*i.quantity),0), 
+            location: userLocation, 
+            timestamp: new Date().toLocaleString('en-GH')
+        };
+        const url = `https://wa.me/${CONFIG.MANAGER_WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(tempOrder)}`;
+        
+        if (window.open(url, '_blank', 'noopener,noreferrer')) {
+            showNotification('💬 Opening WhatsApp...', 'success');
+        } else {
+            alert('⚠️ Popup blocked! Please allow popups for WhatsApp integration.');
+        }
+    }
+
+    function sendConfirmedOrderToWhatsApp() {
+        if (!lastOrder) { 
+            showNotification('⚠️ No recent order to forward.', 'warning'); 
+            return; 
+        }
+        const url = `https://wa.me/${CONFIG.MANAGER_WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(lastOrder)}`;
+        
+        if (window.open(url, '_blank', 'noopener,noreferrer')) {
+            showNotification('💬 Forwarding to manager via WhatsApp...', 'success');
+        } else {
+            alert('⚠️ Popup blocked! Allow popups for WhatsApp.');
+        }
+    }
+
+    // ==================== MANAGER FUNCTIONS ====================
+    function renderManagerProducts() {
+        const list = document.getElementById('managerProductList');
+        if (!list) return;
+        
+        if (products.length === 0) {
+            list.innerHTML = '<p class="warning-box" style="margin:15px;text-align:center;">No products. Add your first product above!</p>';
+            return;
+        }
+        
+        let html = '';
+        products.forEach(p => {
+            const imgPreview = p.image 
+                ? `<img src="${p.image}" alt="${p.name}" style="width:50px;height:50px;object-fit:cover;border-radius:4px;margin-right:12px;border:1px solid #eee;">`
+                : `<div style="width:50px;height:50px;background:#f0f0f0;border-radius:4px;margin-right:12px;display:flex;align-items:center;justify-content:center;color:#999;font-size:1.2em;">📷</div>`;
+            
+            html += `<div class="manager-product-item">
+                <div style="display:flex;align-items:center;flex:1;">
+                    ${imgPreview}
+                    <div class="manager-product-info">
+                        <div class="manager-product-name">${p.name}</div>
+                        <div class="manager-product-price">GHS ${p.price.toFixed(2)}</div>
+                    </div>
+                </div>
+                <div class="manager-actions">
+                    <button class="btn-manager btn-edit" onclick="openEditProductModal(${p.id})" title="Edit product">✏️</button>
+                    <button class="btn-manager btn-delete" onclick="deleteProduct(${p.id})" title="Delete product">🗑️</button>
+                </div>
+            </div>`;
+        });
+        list.innerHTML = html;
+    }
+
+    function previewImage(e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById('imagePreview');
+        if (!preview) return;
+        
+        if (file) {
+            if (!file.type.match('image.*')) {
+                showNotification('⚠️ Please select a valid image file', 'warning');
+                e.target.value = '';
+                return;
             }
-            if (!userLocation && !confirm('⚠️ No GPS location detected. Continue order without delivery coordinates?')) {
+            if (file.size > 2 * 1024 * 1024) { // 2MB limit
+                showNotification('⚠️ Image too large. Max 2MB recommended for offline use', 'warning');
+            }
+            const r = new FileReader(); 
+            r.onload = (ev) => {
+                preview.innerHTML = `<img src="${ev.target.result}" alt="Preview" style="max-width:100%;max-height:180px;border-radius:6px;border:2px solid var(--primary-color);">`;
+            }; 
+            r.readAsDataURL(file);
+        } else {
+            preview.innerHTML = '';
+        }
+    }
+
+    function previewEditImage(e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById('editImagePreview');
+        if (!preview) return;
+        
+        if (file) {
+            if (!file.type.match('image.*')) {
+                showNotification('⚠️ Please select a valid image file', 'warning');
+                e.target.value = '';
+                return;
+            }
+            if (file.size > 2 * 1024 * 1024) {
+                showNotification('⚠️ Image too large. Max 2MB recommended', 'warning');
+            }
+            const r = new FileReader(); 
+            r.onload = (ev) => {
+                preview.innerHTML = `<img src="${ev.target.result}" alt="Preview" style="max-width:100%;max-height:150px;border-radius:6px;border:2px dashed var(--accent-color);">`;
+            }; 
+            r.readAsDataURL(file);
+        } else {
+            preview.innerHTML = '';
+        }
+    }
+
+    function addProduct() {
+        const name = document.getElementById('productName').value.trim();
+        const priceInput = document.getElementById('productPrice').value;
+        const price = parseFloat(priceInput);
+        const imgInput = document.getElementById('productImage');
+        
+        if (!name || name.length < 2) { 
+            showNotification('⚠️ Enter a valid product name (min 2 characters)', 'warning'); 
+            return; 
+        }
+        if (isNaN(price) || price <= 0 || price > 99999) { 
+            showNotification('⚠️ Enter a valid price between 0.01 and 99,999 GHS', 'warning'); 
+            return; 
+        }
+        
+        const newP = { 
+            id: nextProductId++, 
+            name: name, 
+            price: Math.round(price * 100) / 100, // Avoid floating point errors
+            image: null,
+            dateAdded: new Date().toISOString()
+        };
+        
+        if (imgInput.files[0]) {
+            const r = new FileReader();
+            r.onload = (e) => { 
+                newP.image = e.target.result; 
+                saveAndRenderProduct(newP); 
+            };
+            r.onerror = () => {
+                showNotification('⚠️ Error reading image file', 'error');
+                saveAndRenderProduct(newP); // Save without image
+            };
+            r.readAsDataURL(imgInput.files[0]);
+        } else {
+            // Use placeholder SVG for new products without image
+            newP.image = DEFAULT_IMAGES.placeholder;
+            saveAndRenderProduct(newP);
+        }
+    }
+
+    function saveAndRenderProduct(p) {
+        products.push(p);
+        
+        // Reset form
+        document.getElementById('productName').value = '';
+        document.getElementById('productPrice').value = '';
+        document.getElementById('productImage').value = '';
+        document.getElementById('imagePreview').innerHTML = '';
+        
+        // Persist to localStorage
+        localStorage.setItem('marketplace_products', JSON.stringify(products));
+        
+        showNotification(`✅ "${p.name}" added to store!`, 'success');
+        
+        // Re-render views
+        if (currentRole === 'client') renderProducts();
+        if (currentRole === 'manager') renderManagerProducts();
+    }
+
+    function openEditProductModal(id) {
+        const p = products.find(x => x.id === id);
+        if (!p) {
+            showNotification('⚠️ Product not found', 'error');
+            return;
+        }
+        
+        document.getElementById('editProductId').value = p.id;
+        document.getElementById('editProductName').value = p.name;
+        document.getElementById('editProductPrice').value = p.price;
+        document.getElementById('editImagePreview').innerHTML = p.image 
+            ? `<img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:150px;border-radius:6px;border:2px solid var(--primary-color);">` 
+            : '<div style="padding:20px;color:#999;">📷 No image</div>';
+        document.getElementById('editProductImage').value = '';
+        document.getElementById('editProductModal').style.display = 'block';
+    }
+
+    function saveProductEdit() {
+        const id = parseInt(document.getElementById('editProductId').value);
+        const name = document.getElementById('editProductName').value.trim();
+        const priceInput = document.getElementById('editProductPrice').value;
+        const price = parseFloat(priceInput);
+        const imgInput = document.getElementById('editProductImage');
+        
+        if (!name || name.length < 2) { 
+            showNotification('⚠️ Enter a valid product name', 'warning'); 
+            return; 
+        }
+        if (isNaN(price) || price <= 0) { 
+            showNotification('⚠️ Enter a valid price', 'warning'); 
+            return; 
+        }
+        
+        const idx = products.findIndex(x => x.id === id);
+        if (idx === -1) {
+            showNotification('⚠️ Product not found', 'error');
+            return;
+        }
+        
+        // Update basic fields
+        products[idx].name = name;
+        products[idx].price = Math.round(price * 100) / 100;
+        products[idx].lastModified = new Date().toISOString();
+        
+        // Handle image change with password verification
+        if (imgInput.files[0]) {
+            if (!imgInput.files[0].type.match('image.*')) {
+                showNotification('⚠️ Invalid image file', 'warning');
                 return;
             }
             
-            const order = {
-                id: nextOrderId++,
-                items: JSON.parse(JSON.stringify(cart)),
-                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-                location: userLocation ? {...userLocation} : null,
-                timestamp: new Date().toLocaleString('en-GH', { 
-                    year: 'numeric', month: 'short', day: 'numeric',
-                    hour: '2-digit', minute: '2-digit'
-                }),
-                status: 'pending',
-                appVersion: CONFIG.APP_VERSION
+            // Store pending edit and show password modal
+            pendingImageEdit = {
+                productId: id,
+                productIndex: idx,
+                newImageFile: imgInput.files[0]
             };
             
-            const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
-            orders.push(order);
-            localStorage.setItem('marketplace_orders', JSON.stringify(orders));
-            
-            localStorage.setItem('marketplace_products', JSON.stringify(products));
-            
-            lastOrder = order;
-            showOrderConfirmation(order);
-            cart = []; 
-            renderCart();
-            showNotification(`🎉 Order #${order.id} placed successfully!`, 'success');
+            closeModal('editProductModal');
+            document.getElementById('imageChangePassword').value = '';
+            document.getElementById('imageChangeError').style.display = 'none';
+            document.getElementById('imageChangeModal').style.display = 'block';
+            setTimeout(() => document.getElementById('imageChangePassword').focus(), 100);
+            return;
         }
+        
+        // No image change - save directly
+        finalizeEdit();
+    }
 
-        function showOrderConfirmation(order) {
-            const summary = document.getElementById('orderSummary');
-            if (!summary) return;
+    function confirmImageChange() {
+        const password = document.getElementById('imageChangePassword').value;
+        const errorEl = document.getElementById('imageChangeError');
+        
+        if (password !== CONFIG.MANAGER_PASSWORD) {
+            errorEl.style.display = 'block';
+            errorEl.textContent = '❌ Incorrect password. Image not updated.';
+            document.getElementById('imageChangePassword').value = '';
+            document.getElementById('imageChangePassword').focus();
+            return;
+        }
+        
+        if (!pendingImageEdit) {
+            errorEl.style.display = 'block';
+            errorEl.textContent = '⚠️ No pending image change';
+            return;
+        }
+        
+        // Read and embed the new image
+        const r = new FileReader();
+        r.onload = (e) => {
+            products[pendingImageEdit.productIndex].image = e.target.result;
+            finalizeEdit();
+        };
+        r.onerror = () => {
+            errorEl.style.display = 'block';
+            errorEl.textContent = '⚠️ Error reading image file';
+        };
+        r.readAsDataURL(pendingImageEdit.newImageFile);
+        
+        // Clear pending state
+        pendingImageEdit = null;
+        closeModal('imageChangeModal');
+    }
+
+    function finalizeEdit() {
+        // Persist changes
+        localStorage.setItem('marketplace_products', JSON.stringify(products));
+        
+        // Close modals
+        closeModal('editProductModal');
+        closeModal('imageChangeModal');
+        
+        showNotification('✅ Product updated successfully!', 'success');
+        
+        // Re-render views
+        if (currentRole === 'client') renderProducts();
+        if (currentRole === 'manager') renderManagerProducts();
+        
+        // Reset pending state
+        pendingImageEdit = null;
+    }
+
+    function deleteProduct(id) {
+        const product = products.find(p => p.id === id);
+        if (!product) return;
+        
+        if (!confirm(`🗑️ Delete "${product.name}"?\n\n⚠️ This action cannot be undone.`)) {
+            return;
+        }
+        
+        const idx = products.findIndex(p => p.id === id);
+        if (idx === -1) return;
+        
+        products.splice(idx, 1);
+        
+        // Update nextProductId if needed
+        if (products.length > 0) {
+            nextProductId = Math.max(...products.map(p => p.id)) + 1;
+        } else {
+            nextProductId = 1;
+        }
+        
+        // Persist changes
+        localStorage.setItem('marketplace_products', JSON.stringify(products));
+        
+        showNotification(`🗑️ "${product.name}" deleted`, 'warning');
+        
+        // Re-render views
+        if (currentRole === 'client') renderProducts();
+        if (currentRole === 'manager') renderManagerProducts();
+    }
+
+    function renderOrders() {
+        const container = document.getElementById('ordersContainer');
+        if (!container) return;
+        
+        const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
+        if (orders.length === 0) { 
+            container.innerHTML = '<p class="warning-box" style="text-align:center;">No orders yet. Orders will appear here when clients place them.</p>'; 
+            return; 
+        }
+        
+        let html = '';
+        // Show newest first
+        orders.slice().reverse().forEach(order => {
+            const statusColors = {
+                'pending': 'var(--warning-color)',
+                'processing': 'var(--primary-color)',
+                'delivered': 'var(--success-color)',
+                'cancelled': 'var(--error-color)'
+            };
+            const statusColor = statusColors[order.status] || 'var(--text-color)';
             
-            let html = `<p style="margin-bottom:15px;"><strong>Order #${order.id}</strong> • ${order.timestamp}</p>`;
+            html += `<div class="order-summary" style="margin-bottom:18px;">
+                <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+                    <div>
+                        <strong style="font-size:1.1em;">Order #${order.id}</strong><br>
+                        <small style="color:#666;">${order.timestamp}</small>
+                    </div>
+                    <span style="background:${statusColor}20;color:${statusColor};padding:4px 12px;border-radius:20px;font-size:0.9em;font-weight:500;">
+                        ${order.status.toUpperCase()}
+                    </span>
+                </div>
+                
+                <p><strong>Items:</strong></p>`;
+            
             order.items.forEach(item => {
                 html += `<div class="order-item">
                     <span>${item.name} × ${item.quantity}</span>
                     <span>GHS ${(item.price * item.quantity).toFixed(2)}</span>
                 </div>`;
             });
+            
             html += `<div class="order-total">Total: GHS ${order.total.toFixed(2)}</div>`;
             
             if (order.location) {
                 const mapsUrl = `https://maps.google.com/?q=${order.location.lat},${order.location.lng}`;
-                html += `<p style="margin-top:18px;padding-top:15px;border-top:1px solid #eee;">
-                    <strong>📍 Delivery Location:</strong><br>
-                    <a href="${mapsUrl}" target="_blank" style="color:var(--primary-color);text-decoration:none;font-weight:500;">
+                html += `<p style="margin-top:15px;padding-top:12px;border-top:1px dashed #ddd;">
+                    <strong>📍 Delivery GPS:</strong><br>
+                    <a href="${mapsUrl}" target="_blank" style="color:var(--accent-color);text-decoration:none;font-weight:500;">
                         ${order.location.lat.toFixed(6)}, ${order.location.lng.toFixed(6)}
                     </a><br>
                     <small style="color:#666;">Accuracy: ±${Math.round(order.location.accuracy)}m • 
-                    <a href="${mapsUrl}" target="_blank" style="color:var(--accent-color);">Open in Maps</a></small>
+                    <a href="${mapsUrl}" target="_blank">Open Map</a></small>
                 </p>`;
             } else {
-                html += `<p style="margin-top:18px;padding-top:15px;border-top:1px solid #eee;color:var(--warning-color);">
+                html += `<p style="margin-top:15px;padding-top:12px;border-top:1px dashed #ddd;color:var(--warning-color);">
                     <strong>⚠️ No GPS location</strong><br>
-                    <small>Manager will confirm delivery address via phone call</small>
+                    <small>Confirm address via phone call</small>
                 </p>`;
             }
-            summary.innerHTML = html;
-            document.getElementById('orderModal').style.display = 'flex';
-        }
+            
+            html += `<div style="margin-top:15px;display:flex;gap:8px;flex-wrap:wrap;">
+                <button class="btn-whatsapp" style="padding:10px 16px;font-size:0.95em;width:auto;margin:0;" onclick="forwardOrderToWhatsApp(${order.id})">
+                    💬 Forward via WhatsApp
+                </button>
+                <button class="btn-secondary" onclick="updateOrderStatus(${order.id}, 'processing')" style="margin:0;">🔄 Processing</button>
+                <button class="btn-secondary" onclick="updateOrderStatus(${order.id}, 'delivered')" style="margin:0;">✅ Delivered</button>
+                <button class="btn-secondary" onclick="updateOrderStatus(${order.id}, 'cancelled')" style="margin:0;background:var(--error-color);">❌ Cancel</button>
+            </div></div>`;
+        });
+        container.innerHTML = html;
+    }
 
-        // ==================== WHATSAPP INTEGRATION ====================
-        function formatWhatsAppMessage(order) {
-            let msg = `*🛍️ SANDY MARKET - NEW ORDER #${order.id}*\\n`;
-            msg += `*Time:* ${order.timestamp}\\n`;
-            if (order.appVersion) msg += `*App:* v${order.appVersion}\\n`;
-            msg += `\\n*Items:*\\n`;
-            order.items.forEach(item => {
-                msg += `• ${item.name} × ${item.quantity} = *GHS ${(item.price * item.quantity).toFixed(2)}*\\n`;
-            });
-            msg += `\\n*💰 TOTAL: GHS ${order.total.toFixed(2)}*\\n`;
-            
-            if (order.location) {
-                msg += `\\n*📍 Delivery GPS:*\\n`;
-                msg += `https://maps.google.com/?q=${order.location.lat},${order.location.lng}\\n`;
-                msg += `Accuracy: ±${Math.round(order.location.accuracy)}m`;
-            } else {
-                msg += `\\n⚠️ *No GPS - confirm address via call*`;
-            }
-            msg += `\\n\\n_Powered by SANDY MARKET App v${CONFIG.APP_VERSION}_`;
-            return encodeURIComponent(msg);
+    function forwardOrderToWhatsApp(orderId) {
+        const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
+        const order = orders.find(o => o.id === orderId);
+        if (!order) { 
+            showNotification('⚠️ Order not found', 'error'); 
+            return; 
         }
-
-        function sendOrderToWhatsApp() {
-            if (cart.length === 0) { 
-                showNotification('⚠️ Cart is empty!', 'warning'); 
-                return; 
-            }
-            const tempOrder = { 
-                id: 'DRAFT-' + Date.now(), 
-                items: JSON.parse(JSON.stringify(cart)), 
-                total: cart.reduce((s,i)=>s+(i.price*i.quantity),0), 
-                location: userLocation, 
-                timestamp: new Date().toLocaleString('en-GH')
-            };
-            const url = `https://wa.me/${CONFIG.MANAGER_WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(tempOrder)}`;
-            
-            if (window.open(url, '_blank', 'noopener,noreferrer')) {
-                showNotification('💬 Opening WhatsApp...', 'success');
-            } else {
-                alert('⚠️ Popup blocked! Please allow popups for WhatsApp integration.');
-            }
+        const url = `https://wa.me/${CONFIG.MANAGER_WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(order)}`;
+        
+        if (window.open(url, '_blank', 'noopener,noreferrer')) {
+            showNotification('💬 Opening WhatsApp with order details...', 'success');
+        } else {
+            alert('⚠️ Popup blocked! Allow popups for WhatsApp.');
         }
+    }
 
-        function sendConfirmedOrderToWhatsApp() {
-            if (!lastOrder) { 
-                showNotification('⚠️ No recent order to forward.', 'warning'); 
-                return; 
-            }
-            const url = `https://wa.me/${CONFIG.MANAGER_WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(lastOrder)}`;
-            
-            if (window.open(url, '_blank', 'noopener,noreferrer')) {
-                showNotification('💬 Forwarding to manager via WhatsApp...', 'success');
-            } else {
-                alert('⚠️ Popup blocked! Allow popups for WhatsApp.');
-            }
-        }
-
-        // ==================== MODERN INVOICE API ====================
-        /**
-         * Generate professional invoice HTML for any order
-         * @param {number} orderId - The order ID to generate invoice for
-         * @returns {string} - Complete invoice HTML string
-         */
-        function generateInvoiceHTML(orderId) {
-            const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
-            const order = orders.find(o => o.id === orderId);
-            
-            if (!order) {
-                showNotification('⚠️ Order not found', 'error');
-                return '';
-            }
-            
-            const invoiceNumber = `INV-${String(order.id).padStart(6, '0')}`;
-            const invoiceDate = new Date().toLocaleDateString('en-GH', {
-                year: 'numeric', month: 'long', day: 'numeric'
-            });
-            
-            let itemsHTML = '';
-            let subtotal = 0;
-            
-            order.items.forEach(item => {
-                const lineTotal = item.price * item.quantity;
-                subtotal += lineTotal;
-                itemsHTML += `
-                    <tr>
-                        <td class="item-name">${item.name}</td>
-                        <td class="item-qty">${item.quantity}</td>
-                        <td class="item-price">GHS ${item.price.toFixed(2)}</td>
-                        <td class="item-total">GHS ${lineTotal.toFixed(2)}</td>
-                    </tr>
-                `;
-            });
-            
-            const tax = subtotal * CONFIG.TAX_RATE;
-            const grandTotal = subtotal + tax;
-            
-            let locationHTML = '';
-            if (order.location) {
-                const mapsUrl = `https://maps.google.com/?q=${order.location.lat},${order.location.lng}`;
-                locationHTML = `
-                    <div class="delivery-info">
-                        <strong>📍 Delivery Location:</strong><br>
-                        <a href="${mapsUrl}" target="_blank">${order.location.lat.toFixed(6)}, ${order.location.lng.toFixed(6)}</a><br>
-                        <small>Accuracy: ±${Math.round(order.location.accuracy)}m</small>
-                    </div>
-                `;
-            } else {
-                locationHTML = `
-                    <div class="delivery-info" style="color:var(--warning-color);">
-                        <strong>⚠️ No GPS location recorded</strong><br>
-                        <small>Delivery address to be confirmed via phone call</small>
-                    </div>
-                `;
-            }
-            
-            return `
-                <div class="invoice-container" id="printableInvoice">
-                    <div class="invoice-header">
-                        <div class="invoice-brand">
-                            <h2>🛍️ ${CONFIG.COMPANY_NAME}</h2>
-                            <p>${CONFIG.COMPANY_ADDRESS}</p>
-                            <p>📞 ${CONFIG.COMPANY_CONTACT}</p>
-                        </div>
-                        <div class="invoice-meta">
-                            <div class="invoice-number">Invoice #${invoiceNumber}</div>
-                            <div class="invoice-date">Date: ${invoiceDate}</div>
-                            <div class="invoice-date">Order #${order.id}</div>
-                        </div>
-                    </div>
-                    
-                    <table class="invoice-items">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Qty</th>
-                                <th>Price</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${itemsHTML}
-                        </tbody>
-                    </table>
-                    
-                    <div class="invoice-totals">
-                        <div class="subtotal">
-                            <span>Subtotal:</span>
-                            <span>GHS ${subtotal.toFixed(2)}</span>
-                        </div>
-                        ${CONFIG.TAX_RATE > 0 ? `
-                        <div class="tax">
-                            <span>Tax (${(CONFIG.TAX_RATE * 100).toFixed(1)}%):</span>
-                            <span>GHS ${tax.toFixed(2)}</span>
-                        </div>` : ''}
-                        <div class="grand-total">
-                            <span>Grand Total:</span>
-                            <span>GHS ${grandTotal.toFixed(2)}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="invoice-footer">
-                        <p><strong>Thank you for your order!</strong></p>
-                        <p>For support: ${CONFIG.COMPANY_CONTACT}</p>
-                        ${locationHTML}
-                        <p style="margin-top:15px;font-size:0.85em;color:#888;">
-                            <em>Generated by SANDY MARKET App v${CONFIG.APP_VERSION} • ${new Date().toLocaleString('en-GH')}</em>
-                        </p>
-                    </div>
-                </div>
-            `;
-        }
-
-        /**
-         * Show invoice preview in modal
-         * @param {number} orderId - Order ID to preview
-         */
-        function generateInvoicePreview(orderId) {
-            const invoiceHTML = generateInvoiceHTML(orderId);
-            if (!invoiceHTML) return;
-            
-            document.getElementById('invoicePreviewContainer').innerHTML = invoiceHTML;
-            document.getElementById('invoiceModal').style.display = 'flex';
-        }
-
-        /**
-         * Print invoice using browser print dialog
-         * @param {number} orderId - Order ID to print
-         */
-        function printInvoice(orderId) {
-            if (!orderId && lastOrder) orderId = lastOrder.id;
-            if (!orderId) {
-                showNotification('⚠️ No order selected', 'warning');
-                return;
-            }
-            
-            const invoiceHTML = generateInvoiceHTML(orderId);
-            if (!invoiceHTML) return;
-            
-            // Create print window
-            const printWindow = window.open('', '_blank', 'width=800,height=600');
-            printWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Invoice #${orderId} - ${CONFIG.COMPANY_NAME}</title>
-                    <style>
-                        ${document.querySelector('style').textContent}
-                        body { font-family: 'Georgia', serif; margin: 0; padding: 20px; }
-                        @media print {
-                            body { margin: 0; padding: 0; }
-                            .no-print { display: none !important; }
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${invoiceHTML}
-                    <script>
-                        window.onload = function() {
-                            window.print();
-                            window.onafterprint = function() { window.close(); };
-                        }
-                    <\/script>
-                </body>
-                </html>
-            `);
-            printWindow.document.close();
-            showNotification('🖨️ Opening print dialog...', 'success');
-        }
-
-        /**
-         * Export invoice as PDF using browser print-to-PDF
-         * @param {number} orderId - Order ID to export
-         */
-        function exportInvoicePDF(orderId) {
-            if (!orderId && lastOrder) orderId = lastOrder.id;
-            if (!orderId) {
-                showNotification('⚠️ No order selected', 'warning');
-                return;
-            }
-            
-            const invoiceHTML = generateInvoiceHTML(orderId);
-            if (!invoiceHTML) return;
-            
-            // Create print window configured for PDF export
-            const pdfWindow = window.open('', '_blank', 'width=800,height=600');
-            pdfWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Invoice #${orderId} - ${CONFIG.COMPANY_NAME}</title>
-                    <style>
-                        ${document.querySelector('style').textContent}
-                        body { 
-                            font-family: 'Georgia', serif; 
-                            margin: 0; 
-                            padding: 20px;
-                            background: #fff;
-                        }
-                        @media print {
-                            body { margin: 0; padding: 0; }
-                            .no-print { display: none !important; }
-                            @page { 
-                                margin: 1.5cm; 
-                                size: A4;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${invoiceHTML}
-                    <div class="no-print" style="margin-top:30px;text-align:center;">
-                        <p><strong>💡 To save as PDF:</strong></p>
-                        <p>1. Click "Print" in the dialog that appears</p>
-                        <p>2. Change "Destination" to "Save as PDF"</p>
-                        <p>3. Click "Save" to download your invoice</p>
-                        <button onclick="window.print()" style="margin-top:15px;padding:10px 20px;background:var(--primary-color);color:#fff;border:none;border-radius:6px;cursor:pointer;">
-                            🖨️ Open Print Dialog
-                        </button>
-                    </div>
-                </body>
-                </html>
-            `);
-            pdfWindow.document.close();
-            showNotification('📄 Opening PDF export dialog...', 'success');
-        }
-
-        /**
-         * Print from invoice preview modal
-         */
-        function printInvoiceFromPreview() {
-            const invoiceContent = document.getElementById('invoicePreviewContainer').innerHTML;
-            if (!invoiceContent) return;
-            
-            const printWindow = window.open('', '_blank', 'width=800,height=600');
-            printWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Invoice - ${CONFIG.COMPANY_NAME}</title>
-                    <style>
-                        ${document.querySelector('style').textContent}
-                        body { font-family: 'Georgia', serif; margin: 0; padding: 20px; }
-                        @media print {
-                            body { margin: 0; padding: 0; }
-                            .no-print { display: none !important; }
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${invoiceContent}
-                    <script>
-                        window.onload = function() {
-                            setTimeout(() => {
-                                window.print();
-                                window.onafterprint = function() { window.close(); };
-                            }, 500);
-                        }
-                    <\/script>
-                </body>
-                </html>
-            `);
-            printWindow.document.close();
-            closeModal('invoiceModal');
-        }
-
-        /**
-         * Export PDF from invoice preview modal
-         */
-        function exportPDFFromPreview() {
-            const invoiceContent = document.getElementById('invoicePreviewContainer').innerHTML;
-            if (!invoiceContent) return;
-            
-            const pdfWindow = window.open('', '_blank', 'width=800,height=600');
-            pdfWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Invoice - ${CONFIG.COMPANY_NAME}</title>
-                    <style>
-                        ${document.querySelector('style').textContent}
-                        body { 
-                            font-family: 'Georgia', serif; 
-                            margin: 0; 
-                            padding: 20px;
-                            background: #fff;
-                        }
-                        @media print {
-                            body { margin: 0; padding: 0; }
-                            .no-print { display: none !important; }
-                            @page { 
-                                margin: 1.5cm; 
-                                size: A4;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${invoiceContent}
-                    <div class="no-print" style="margin-top:30px;text-align:center;">
-                        <p><strong>💡 To save as PDF:</strong></p>
-                        <p>1. Click "Print" in the dialog that appears</p>
-                        <p>2. Change "Destination" to "Save as PDF"</p>
-                        <p>3. Click "Save" to download your invoice</p>
-                        <button onclick="window.print()" style="margin-top:15px;padding:10px 20px;background:var(--success-color);color:#fff;border:none;border-radius:6px;cursor:pointer;">
-                            📄 Export as PDF
-                        </button>
-                    </div>
-                </body>
-                </html>
-            `);
-            pdfWindow.document.close();
-            closeModal('invoiceModal');
-            showNotification('📄 Ready to export as PDF', 'success');
-        }
-
-        // ==================== MANAGER FUNCTIONS ====================
-        function renderManagerProducts() {
-            const list = document.getElementById('managerProductList');
-            if (!list) return;
-            
-            if (products.length === 0) {
-                list.innerHTML = '<p class="warning-box" style="margin:15px;text-align:center;">No products. Add your first product above!</p>';
-                return;
-            }
-            
-            let html = '';
-            products.forEach(p => {
-                const imgPreview = p.image 
-                    ? `<img src="${p.image}" alt="${p.name}" style="width:50px;height:50px;object-fit:cover;border-radius:4px;margin-right:12px;border:1px solid #eee;">`
-                    : `<div style="width:50px;height:50px;background:#f0f0f0;border-radius:4px;margin-right:12px;display:flex;align-items:center;justify-content:center;color:#999;font-size:1.2em;">📷</div>`;
-                
-                html += `<div class="manager-product-item">
-                    <div style="display:flex;align-items:center;flex:1;">
-                        ${imgPreview}
-                        <div class="manager-product-info">
-                            <div class="manager-product-name">${p.name}</div>
-                            <div class="manager-product-price">GHS ${p.price.toFixed(2)}</div>
-                        </div>
-                    </div>
-                    <div class="manager-actions">
-                        <button class="btn-manager btn-edit" onclick="openEditProductModal(${p.id})" title="Edit product">✏️</button>
-                        <button class="btn-manager btn-delete" onclick="deleteProduct(${p.id})" title="Delete product">🗑️</button>
-                        <button class="btn-manager btn-invoice" onclick="generateInvoicePreview(${p.id})" title="Generate sample invoice">🧾</button>
-                    </div>
-                </div>`;
-            });
-            list.innerHTML = html;
-        }
-
-        function previewImage(e) {
-            const file = e.target.files[0];
-            const preview = document.getElementById('imagePreview');
-            if (!preview) return;
-            
-            if (file) {
-                if (!file.type.match('image.*')) {
-                    showNotification('⚠️ Please select a valid image file', 'warning');
-                    e.target.value = '';
-                    return;
-                }
-                if (file.size > 2 * 1024 * 1024) {
-                    showNotification('⚠️ Image too large. Max 2MB recommended for offline use', 'warning');
-                }
-                const r = new FileReader(); 
-                r.onload = (ev) => {
-                    preview.innerHTML = `<img src="${ev.target.result}" alt="Preview" style="max-width:100%;max-height:180px;border-radius:6px;border:2px solid var(--primary-color);">`;
-                }; 
-                r.readAsDataURL(file);
-            } else {
-                preview.innerHTML = '';
-            }
-        }
-
-        function previewEditImage(e) {
-            const file = e.target.files[0];
-            const preview = document.getElementById('editImagePreview');
-            if (!preview) return;
-            
-            if (file) {
-                if (!file.type.match('image.*')) {
-                    showNotification('⚠️ Please select a valid image file', 'warning');
-                    e.target.value = '';
-                    return;
-                }
-                if (file.size > 2 * 1024 * 1024) {
-                    showNotification('⚠️ Image too large. Max 2MB recommended', 'warning');
-                }
-                const r = new FileReader(); 
-                r.onload = (ev) => {
-                    preview.innerHTML = `<img src="${ev.target.result}" alt="Preview" style="max-width:100%;max-height:150px;border-radius:6px;border:2px dashed var(--accent-color);">`;
-                }; 
-                r.readAsDataURL(file);
-            } else {
-                preview.innerHTML = '';
-            }
-        }
-
-        function addProduct() {
-            const name = document.getElementById('productName').value.trim();
-            const priceInput = document.getElementById('productPrice').value;
-            const price = parseFloat(priceInput);
-            const imgInput = document.getElementById('productImage');
-            
-            if (!name || name.length < 2) { 
-                showNotification('⚠️ Enter a valid product name (min 2 characters)', 'warning'); 
-                return; 
-            }
-            if (isNaN(price) || price <= 0 || price > 99999) { 
-                showNotification('⚠️ Enter a valid price between 0.01 and 99,999 GHS', 'warning'); 
-                return; 
-            }
-            
-            const newP = { 
-                id: nextProductId++, 
-                name: name, 
-                price: Math.round(price * 100) / 100,
-                image: null,
-                dateAdded: new Date().toISOString()
-            };
-            
-            if (imgInput.files[0]) {
-                const r = new FileReader();
-                r.onload = (e) => { 
-                    newP.image = e.target.result; 
-                    saveAndRenderProduct(newP); 
-                };
-                r.onerror = () => {
-                    showNotification('⚠️ Error reading image file', 'error');
-                    saveAndRenderProduct(newP);
-                };
-                r.readAsDataURL(imgInput.files[0]);
-            } else {
-                newP.image = DEFAULT_IMAGES.placeholder;
-                saveAndRenderProduct(newP);
-            }
-        }
-
-        function saveAndRenderProduct(p) {
-            products.push(p);
-            
-            document.getElementById('productName').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('productImage').value = '';
-            document.getElementById('imagePreview').innerHTML = '';
-            
-            localStorage.setItem('marketplace_products', JSON.stringify(products));
-            
-            showNotification(`✅ "${p.name}" added to store!`, 'success');
-            
-            if (currentRole === 'client') renderProducts();
-            if (currentRole === 'manager') renderManagerProducts();
-        }
-
-        function openEditProductModal(id) {
-            const p = products.find(x => x.id === id);
-            if (!p) {
-                showNotification('⚠️ Product not found', 'error');
-                return;
-            }
-            
-            document.getElementById('editProductId').value = p.id;
-            document.getElementById('editProductName').value = p.name;
-            document.getElementById('editProductPrice').value = p.price;
-            document.getElementById('editImagePreview').innerHTML = p.image 
-                ? `<img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:150px;border-radius:6px;border:2px solid var(--primary-color);">` 
-                : '<div style="padding:20px;color:#999;">📷 No image</div>';
-            document.getElementById('editProductImage').value = '';
-            document.getElementById('editProductModal').style.display = 'flex';
-        }
-
-        function saveProductEdit() {
-            const id = parseInt(document.getElementById('editProductId').value);
-            const name = document.getElementById('editProductName').value.trim();
-            const priceInput = document.getElementById('editProductPrice').value;
-            const price = parseFloat(priceInput);
-            const imgInput = document.getElementById('editProductImage');
-            
-            if (!name || name.length < 2) { 
-                showNotification('⚠️ Enter a valid product name', 'warning'); 
-                return; 
-            }
-            if (isNaN(price) || price <= 0) { 
-                showNotification('⚠️ Enter a valid price', 'warning'); 
-                return; 
-            }
-            
-            const idx = products.findIndex(x => x.id === id);
-            if (idx === -1) {
-                showNotification('⚠️ Product not found', 'error');
-                return;
-            }
-            
-            products[idx].name = name;
-            products[idx].price = Math.round(price * 100) / 100;
-            products[idx].lastModified = new Date().toISOString();
-            
-            if (imgInput.files[0]) {
-                if (!imgInput.files[0].type.match('image.*')) {
-                    showNotification('⚠️ Invalid image file', 'warning');
-                    return;
-                }
-                
-                pendingImageEdit = {
-                    productId: id,
-                    productIndex: idx,
-                    newImageFile: imgInput.files[0]
-                };
-                
-                closeModal('editProductModal');
-                document.getElementById('imageChangePassword').value = '';
-                document.getElementById('imageChangeError').style.display = 'none';
-                document.getElementById('imageChangeModal').style.display = 'flex';
-                setTimeout(() => document.getElementById('imageChangePassword').focus(), 100);
-                return;
-            }
-            
-            finalizeEdit();
-        }
-
-        function confirmImageChange() {
-            const password = document.getElementById('imageChangePassword').value;
-            const errorEl = document.getElementById('imageChangeError');
-            
-            if (password !== CONFIG.MANAGER_PASSWORD) {
-                errorEl.style.display = 'block';
-                errorEl.textContent = '❌ Incorrect password. Image not updated.';
-                document.getElementById('imageChangePassword').value = '';
-                document.getElementById('imageChangePassword').focus();
-                return;
-            }
-            
-            if (!pendingImageEdit) {
-                errorEl.style.display = 'block';
-                errorEl.textContent = '⚠️ No pending image change';
-                return;
-            }
-            
-            const r = new FileReader();
-            r.onload = (e) => {
-                products[pendingImageEdit.productIndex].image = e.target.result;
-                finalizeEdit();
-            };
-            r.onerror = () => {
-                errorEl.style.display = 'block';
-                errorEl.textContent = '⚠️ Error reading image file';
-            };
-            r.readAsDataURL(pendingImageEdit.newImageFile);
-            
-            pendingImageEdit = null;
-            closeModal('imageChangeModal');
-        }
-
-        function finalizeEdit() {
-            localStorage.setItem('marketplace_products', JSON.stringify(products));
-            closeModal('editProductModal');
-            closeModal('imageChangeModal');
-            showNotification('✅ Product updated successfully!', 'success');
-            if (currentRole === 'client') renderProducts();
-            if (currentRole === 'manager') renderManagerProducts();
-            pendingImageEdit = null;
-        }
-
-        function deleteProduct(id) {
-            const product = products.find(p => p.id === id);
-            if (!product) return;
-            
-            if (!confirm(`🗑️ Delete "${product.name}"?\n\n⚠️ This action cannot be undone.`)) {
-                return;
-            }
-            
-            const idx = products.findIndex(p => p.id === id);
-            if (idx === -1) return;
-            
-            products.splice(idx, 1);
-            
-            if (products.length > 0) {
-                nextProductId = Math.max(...products.map(p => p.id)) + 1;
-            } else {
-                nextProductId = 1;
-            }
-            
-            localStorage.setItem('marketplace_products', JSON.stringify(products));
-            
-            showNotification(`🗑️ "${product.name}" deleted`, 'warning');
-            
-            if (currentRole === 'client') renderProducts();
-            if (currentRole === 'manager') renderManagerProducts();
-        }
-
-        function renderOrders() {
-            const container = document.getElementById('ordersContainer');
-            if (!container) return;
-            
-            const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
-            if (orders.length === 0) { 
-                container.innerHTML = '<p class="warning-box" style="text-align:center;">No orders yet. Orders will appear here when clients place them.</p>'; 
-                return; 
-            }
-            
-            let html = '';
-            orders.slice().reverse().forEach(order => {
-                const statusColors = {
-                    'pending': 'var(--warning-color)',
-                    'processing': 'var(--primary-color)',
-                    'delivered': 'var(--success-color)',
-                    'cancelled': 'var(--error-color)'
-                };
-                const statusColor = statusColors[order.status] || 'var(--text-color)';
-                
-                html += `<div class="order-summary" style="margin-bottom:18px;">
-                    <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
-                        <div>
-                            <strong style="font-size:1.1em;">Order #${order.id}</strong><br>
-                            <small style="color:#666;">${order.timestamp}</small>
-                        </div>
-                        <span style="background:${statusColor}20;color:${statusColor};padding:4px 12px;border-radius:20px;font-size:0.9em;font-weight:500;">
-                            ${order.status.toUpperCase()}
-                        </span>
-                    </div>
-                    
-                    <p><strong>Items:</strong></p>`;
-                
-                order.items.forEach(item => {
-                    html += `<div class="order-item">
-                        <span>${item.name} × ${item.quantity}</span>
-                        <span>GHS ${(item.price * item.quantity).toFixed(2)}</span>
-                    </div>`;
-                });
-                
-                html += `<div class="order-total">Total: GHS ${order.total.toFixed(2)}</div>`;
-                
-                if (order.location) {
-                    const mapsUrl = `https://maps.google.com/?q=${order.location.lat},${order.location.lng}`;
-                    html += `<p style="margin-top:15px;padding-top:12px;border-top:1px dashed #ddd;">
-                        <strong>📍 Delivery GPS:</strong><br>
-                        <a href="${mapsUrl}" target="_blank" style="color:var(--accent-color);text-decoration:none;font-weight:500;">
-                            ${order.location.lat.toFixed(6)}, ${order.location.lng.toFixed(6)}
-                        </a><br>
-                        <small style="color:#666;">Accuracy: ±${Math.round(order.location.accuracy)}m • 
-                        <a href="${mapsUrl}" target="_blank">Open Map</a></small>
-                    </p>`;
-                } else {
-                    html += `<p style="margin-top:15px;padding-top:12px;border-top:1px dashed #ddd;color:var(--warning-color);">
-                        <strong>⚠️ No GPS location</strong><br>
-                        <small>Confirm address via phone call</small>
-                    </p>`;
-                }
-                
-                html += `<div style="margin-top:15px;display:flex;gap:8px;flex-wrap:wrap;">
-                    <button class="btn-whatsapp" style="padding:10px 16px;font-size:0.95em;width:auto;margin:0;" onclick="forwardOrderToWhatsApp(${order.id})">
-                        💬 Forward via WhatsApp
-                    </button>
-                    <button class="btn-manager btn-invoice" style="margin:0;" onclick="generateInvoicePreview(${order.id})">
-                        🧾 Generate Invoice
-                    </button>
-                    <button class="btn-secondary" onclick="updateOrderStatus(${order.id}, 'processing')" style="margin:0;">🔄 Processing</button>
-                    <button class="btn-secondary" onclick="updateOrderStatus(${order.id}, 'delivered')" style="margin:0;">✅ Delivered</button>
-                    <button class="btn-secondary" onclick="updateOrderStatus(${order.id}, 'cancelled')" style="margin:0;background:var(--error-color);">❌ Cancel</button>
-                </div></div>`;
-            });
-            container.innerHTML = html;
-        }
-
-        function forwardOrderToWhatsApp(orderId) {
-            const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
-            const order = orders.find(o => o.id === orderId);
-            if (!order) { 
-                showNotification('⚠️ Order not found', 'error'); 
-                return; 
-            }
-            const url = `https://wa.me/${CONFIG.MANAGER_WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(order)}`;
-            
-            if (window.open(url, '_blank', 'noopener,noreferrer')) {
-                showNotification('💬 Opening WhatsApp with order details...', 'success');
-            } else {
-                alert('⚠️ Popup blocked! Allow popups for WhatsApp.');
-            }
-        }
-
-        function updateOrderStatus(orderId, status) {
-            const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
-            const order = orders.find(o => o.id === orderId);
-            if (!order) {
-                showNotification('⚠️ Order not found', 'error');
-                return;
-            }
-            
-            order.status = status;
-            order.lastStatusUpdate = new Date().toISOString();
-            localStorage.setItem('marketplace_orders', JSON.stringify(orders));
-            
-            const statusLabels = {
-                'processing': '🔄 Processing',
-                'delivered': '✅ Delivered',
-                'cancelled': '❌ Cancelled'
-            };
-            
-            showNotification(`✅ Order #${orderId} → ${statusLabels[status] || status}`, 'success');
-            renderOrders();
-        }
-
-        // ==================== UTILITIES ====================
-        function closeModal(modalId) { 
-            const modal = document.getElementById(modalId);
-            if (modal) modal.style.display = 'none';
+    function updateOrderStatus(orderId, status) {
+        const orders = JSON.parse(localStorage.getItem('marketplace_orders') || '[]');
+        const order = orders.find(o => o.id === orderId);
+        if (!order) {
+            showNotification('⚠️ Order not found', 'error');
+            return;
         }
         
-        function showNotification(message, type = 'info') {
-            const colors = {
-                'success': 'var(--success-color)',
-                'warning': 'var(--warning-color)',
-                'error': 'var(--error-color)',
-                'info': 'var(--primary-color)'
-            };
-            const color = colors[type] || colors.info;
-            
-            const toast = document.createElement('div');
-            toast.innerHTML = `
-                <div style="
-                    position: fixed; bottom: 20px; right: 20px; 
-                    background: #fff; color: var(--text-color);
-                    padding: 14px 20px; border-radius: 8px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-                    border-left: 4px solid ${color};
-                    z-index: 3000; max-width: 350px;
-                    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-                    font-family: 'Georgia', serif; font-size: 0.95em;
-                ">
-                    ${message}
-                </div>
-            `;
-            document.body.appendChild(toast);
-            
-            if (!document.getElementById('toast-animations')) {
-                const style = document.createElement('style');
-                style.id = 'toast-animations';
-                style.textContent = `
-                    @keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-                    @keyframes fadeOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(120%); } }
-                `;
-                document.head.appendChild(style);
-            }
-            
-            setTimeout(() => {
-                if (toast.parentNode) toast.parentNode.removeChild(toast);
-            }, 3000);
-        }
+        order.status = status;
+        order.lastStatusUpdate = new Date().toISOString();
+        localStorage.setItem('marketplace_orders', JSON.stringify(orders));
         
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const modalIds = ['passwordModal', 'orderModal', 'productModal', 'editProductModal', 'imageChangeModal', 'invoiceModal'];
-            modalIds.forEach(id => {
-                const modal = document.getElementById(id);
-                if (modal && event.target === modal) {
-                    closeModal(id);
-                }
-            });
+        const statusLabels = {
+            'processing': '🔄 Processing',
+            'delivered': '✅ Delivered',
+            'cancelled': '❌ Cancelled'
         };
         
-        // Keyboard navigation for modals
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                ['passwordModal', 'orderModal', 'productModal', 'editProductModal', 'imageChangeModal', 'invoiceModal'].forEach(id => {
-                    closeModal(id);
-                });
+        showNotification(`✅ Order #${orderId} → ${statusLabels[status] || status}`, 'success');
+        renderOrders();
+    }
+
+    // ==================== UTILITIES ====================
+    function closeModal(modalId) { 
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'none';
+    }
+    
+    function showNotification(message, type = 'info') {
+        // Simple toast notification (could be enhanced with a library)
+        const colors = {
+            'success': 'var(--success-color)',
+            'warning': 'var(--warning-color)',
+            'error': 'var(--error-color)',
+            'info': 'var(--primary-color)'
+        };
+        const color = colors[type] || colors.info;
+        
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.innerHTML = `
+            <div style="
+                position: fixed; bottom: 20px; right: 20px; 
+                background: #fff; color: var(--text-color);
+                padding: 14px 20px; border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                border-left: 4px solid ${color};
+                z-index: 3000; max-width: 350px;
+                animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+                font-family: 'Georgia', serif; font-size: 0.95em;
+            ">
+                ${message}
+            </div>
+        `;
+        document.body.appendChild(toast);
+        
+        // Add animation keyframes if not present
+        if (!document.getElementById('toast-animations')) {
+            const style = document.createElement('style');
+            style.id = 'toast-animations';
+            style.textContent = `
+                @keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+                @keyframes fadeOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(120%); } }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Remove after animation
+        setTimeout(() => {
+            if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 3000);
+    }
+    
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+        const modalIds = ['passwordModal', 'orderModal', 'productModal', 'editProductModal', 'imageChangeModal'];
+        modalIds.forEach(id => {
+            const modal = document.getElementById(id);
+            if (modal && event.target === modal) {
+                closeModal(id);
             }
         });
-        
-        // Prevent form submission on Enter in password fields
-        document.querySelectorAll('input[type="password"]').forEach(input => {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (this.id === 'managerPassword') verifyManagerPassword();
-                    if (this.id === 'imageChangePassword') confirmImageChange();
-                }
+    };
+    
+    // Keyboard navigation for modals
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            ['passwordModal', 'orderModal', 'productModal', 'editProductModal', 'imageChangeModal'].forEach(id => {
+                closeModal(id);
             });
+        }
+    });
+    
+    // Prevent form submission on Enter in password fields
+    document.querySelectorAll('input[type="password"]').forEach(input => {
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (this.id === 'managerPassword') verifyManagerPassword();
+                if (this.id === 'imageChangePassword') confirmImageChange();
+            }
         });
-        
-        // Expose functions to global scope for onclick handlers
-        window.switchRole = switchRole;
-        window.requestManagerAccess = requestManagerAccess;
-        window.handlePasswordEnter = handlePasswordEnter;
-        window.verifyManagerPassword = verifyManagerPassword;
-        window.logoutManager = logoutManager;
-        window.toggleManagerMode = toggleManagerMode;
-        window.openProductModal = openProductModal;
-        window.addToCart = addToCart;
-        window.removeFromCart = removeFromCart;
-        window.getLocation = getLocation;
-        window.placeOrder = placeOrder;
-        window.sendOrderToWhatsApp = sendOrderToWhatsApp;
-        window.sendConfirmedOrderToWhatsApp = sendConfirmedOrderToWhatsApp;
-        window.generateInvoicePreview = generateInvoicePreview;
-        window.printInvoice = printInvoice;
-        window.exportInvoicePDF = exportInvoicePDF;
-        window.printInvoiceFromPreview = printInvoiceFromPreview;
-        window.exportPDFFromPreview = exportPDFFromPreview;
-        window.renderManagerProducts = renderManagerProducts;
-        window.previewImage = previewImage;
-        window.previewEditImage = previewEditImage;
-        window.addProduct = addProduct;
-        window.openEditProductModal = openEditProductModal;
-        window.saveProductEdit = saveProductEdit;
-        window.confirmImageChange = confirmImageChange;
-        window.deleteProduct = deleteProduct;
-        window.renderOrders = renderOrders;
-        window.forwardOrderToWhatsApp = forwardOrderToWhatsApp;
-        window.updateOrderStatus = updateOrderStatus;
-        window.closeModal = closeModal;
-        
-    })(); // END IIFE
+    });
 </script>
 
 <!-- PWA Manifest Injection for Android App Compatibility -->
@@ -2337,7 +1727,7 @@
         "theme_color": "#2c3e50",
         "icons": [
             {
-                "src": "image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect fill='%232c3e50' width='192' height='192' rx='40'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-family='Georgia' font-size='72'%3E🛍️%3C/text%3E%3C/svg%3E",
+                "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect fill='%232c3e50' width='192' height='192' rx='40'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-family='Georgia' font-size='72'%3E🛍️%3C/text%3E%3C/svg%3E",
                 "sizes": "192x192",
                 "type": "image/svg+xml",
                 "purpose": "any maskable"
@@ -2345,12 +1735,19 @@
         ]
     };
     
+    // Create and inject manifest link
     const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
     const manifestURL = URL.createObjectURL(manifestBlob);
     const link = document.createElement('link');
     link.rel = 'manifest';
     link.href = manifestURL;
     document.head.appendChild(link);
+    
+    // Register basic service worker for offline support (optional enhancement)
+    if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+        // Service worker registration would go here for production
+        // For this self-contained version, localStorage provides offline data persistence
+    }
 </script>
 </body>
 </html>
